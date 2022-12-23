@@ -2,4 +2,14 @@
     <string name="app_name">CapstonePesaing_Revisited</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_pre_login">Untuk Melanjutkan Daftar dulu yukk!</string>
+    <string name="txt_pre_login2">Jika sudah memiliki akun</string>
+    <string name="btn_daftar">Daftar</string>
+    <string name="txt_to_login"><u>Login</u></string>
+    <string name="email_string">Email</string>
+    <string name="password_string">Password</string>
+    <string name="masuk_string">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="nama_string">Nama</string>
+    <string name="nomor_telepon_string">Nomor Telepon</string>
 </resources>
