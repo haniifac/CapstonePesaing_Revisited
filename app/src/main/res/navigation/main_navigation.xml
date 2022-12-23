@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_landingFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_homeUserFragment"
+            app:destination="@id/homeUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -24,16 +27,33 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_homeUserFragment"
-            app:destination="@id/homeUserFragment" />
+            app:destination="@id/homeUserFragment"
+            app:popUpTo="@id/landingFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_finishRegisterFragment"
+            app:destination="@id/finishRegisterFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/homeUserFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.home.HomeUserFragment"
         android:label="fragment_home_user"
         tools:layout="@layout/fragment_home_user" />
+    <fragment
+        android:id="@+id/finishRegisterFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.ui.register.FinishRegisterFragment"
+        android:label="fragment_finish_register"
+        tools:layout="@layout/fragment_finish_register" >
+        <action
+            android:id="@+id/action_finishRegisterFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

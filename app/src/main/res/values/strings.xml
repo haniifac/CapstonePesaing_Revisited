@@ -12,4 +12,7 @@
     <string name="daftar">Daftar</string>
     <string name="nama_string">Nama</string>
     <string name="nomor_telepon_string">Nomor Telepon</string>
+    <string name="finish_register_title">Anda berhasil terdaftar!</string>
+    <string name="finish_register_sub">Yuk lanjut masuk ke aplikasi nya!</string>
+    <string name="masuk_sekarang_string">Masuk Sekarang</string>
 </resources>

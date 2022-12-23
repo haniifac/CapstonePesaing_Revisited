@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "119295610488",
+    "project_id": "capstonepesaing-revisited",
+    "storage_bucket": "capstonepesaing-revisited.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119295610488:android:bc9dc051e0f6ce73a8a78d",
+        "android_client_info": {
+          "package_name": "com.haniifac.capstonepesaing_revisited"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119295610488-gpp9nc07o1o0qs9usp53mpug7aqohgs0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haniifac.capstonepesaing_revisited",
+            "certificate_hash": "b28380ec6aa15cc21d0616983b8f1130accaeced"
+          }
+        },
+        {
+          "client_id": "119295610488-emq7p0ccpte5albhp51cjj0flipjde8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBieGRPFMOAJWqhMIVVdDBiDHVqtc8ohTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119295610488-emq7p0ccpte5albhp51cjj0flipjde8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
