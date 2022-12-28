@@ -44,4 +44,8 @@
     <string name="motd_main">Mau masak apa hari ini?</string>
     <string name="kategori">Kategori</string>
     <string name="toko_sekitar">Toko Sekitar</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_akun">Akun</string>
+    <string name="title_cart">Keranjang</string>
+    <string name="title_history">Sejarah</string>
 </resources>
