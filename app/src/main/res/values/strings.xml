@@ -1,7 +1,33 @@
 <resources>
     <string name="app_name">CapstonePesaing_Revisited</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="category_name">
+        <item>Sayur</item>
+        <item>Buah</item>
+        <item>Daging</item>
+        <item>Bumbu</item>
+        <item>Ikan</item>
+        <item>Ayam</item>
+        <item>Kue</item>
+    </string-array>
+
+    <integer-array name="category_img">
+        <item>@drawable/sayur</item>
+        <item>@drawable/buah</item>
+        <item>@drawable/daging</item>
+        <item>@drawable/bumbu</item>
+        <item>@drawable/ikan</item>
+        <item>@drawable/ayam</item>
+        <item>@drawable/kue</item>
+    </integer-array>
+
+    <integer-array name="toko_sekitar_img">
+        <item>@drawable/toko1</item>
+        <item>@drawable/toko2</item>
+        <item>@drawable/toko3</item>
+    </integer-array>
+
     <string name="txt_pre_login">Untuk Melanjutkan Daftar dulu yukk!</string>
     <string name="txt_pre_login2">Jika sudah memiliki akun</string>
     <string name="btn_daftar">Daftar</string>
@@ -15,4 +41,7 @@
     <string name="finish_register_title">Anda berhasil terdaftar!</string>
     <string name="finish_register_sub">Yuk lanjut masuk ke aplikasi nya!</string>
     <string name="masuk_sekarang_string">Masuk Sekarang</string>
+    <string name="motd_main">Mau masak apa hari ini?</string>
+    <string name="kategori">Kategori</string>
+    <string name="toko_sekitar">Toko Sekitar</string>
 </resources>
