@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentHomeUserBinding
@@ -50,6 +51,12 @@ class HomeUserFragment : Fragment() {
         rvTokoSekitar.setHasFixedSize(true)
         list2.addAll(listTokoSekitar)
         showRecyclerTokoSekitar()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNav.visibility = View.VISIBLE
     }
 
     private val listCategory: ArrayList<Category>

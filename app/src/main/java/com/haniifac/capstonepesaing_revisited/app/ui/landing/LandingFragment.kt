@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentLandingBinding
@@ -40,6 +41,12 @@ class LandingFragment : Fragment() {
         }
 
         checkSession()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNav.visibility = View.GONE
     }
 
     override fun onDestroy() {
