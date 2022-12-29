@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +23,6 @@ import com.haniifac.capstonepesaing_revisited.domain.entity.TokoSekitar
 class HomeUserFragment : Fragment() {
     private var _binding : FragmentHomeUserBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mAuth: FirebaseAuth
 
     private lateinit var rvCategory: RecyclerView
     private lateinit var rvTokoSekitar : RecyclerView
@@ -39,8 +40,6 @@ class HomeUserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mAuth = FirebaseAuth.getInstance()
-//        mAuth.signOut()
 
         rvCategory = binding.rvCategory
         rvCategory.setHasFixedSize(true)
@@ -51,6 +50,10 @@ class HomeUserFragment : Fragment() {
         rvTokoSekitar.setHasFixedSize(true)
         list2.addAll(listTokoSekitar)
         showRecyclerTokoSekitar()
+
+        binding.btnLihatSemuaTokoSekitar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeUserFragment_to_tokoMapsFragment)
+        }
     }
 
     override fun onResume() {

@@ -12,6 +12,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="grey">#7A7A7A</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="_bg__login_user_ek2_color">#FFFFFF</color>
