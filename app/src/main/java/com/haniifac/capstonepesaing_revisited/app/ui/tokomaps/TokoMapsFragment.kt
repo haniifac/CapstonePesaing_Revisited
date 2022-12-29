@@ -47,7 +47,7 @@ class TokoMapsFragment : Fragment() {
         val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.visibility = View.GONE
 
-        
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }

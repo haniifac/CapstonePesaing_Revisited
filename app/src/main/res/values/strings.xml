@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">CapstonePesaing_Revisited</string>
+    <string name="app_name">Pesaing</string>
+
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="category_name">
         <item>Sayur</item>
@@ -48,13 +50,11 @@
     <string name="title_akun">Akun</string>
     <string name="title_cart">Keranjang</string>
     <string name="title_history">Sejarah</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account_title">Akunku</string>
     <string name="open_store">Buka Toko</string>
     <string name="payment_method">Metode Pembayaran</string>
     <string name="change_password">Ganti Password</string>
     <string name="logout_profile">Keluar/ganti akun</string>
     <string name="lihat_semua">Lihat Semua</string>
-    <string name="search_query_hint">Cari apa yang kamu pikirkan...</string>
+    <string name="search_query_hint"><font size="15">Cari apa yang kamu pikirkan…</font></string>
 </resources>
