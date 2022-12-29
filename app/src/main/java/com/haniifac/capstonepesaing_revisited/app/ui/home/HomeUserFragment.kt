@@ -59,6 +59,13 @@ class HomeUserFragment : Fragment() {
         bottomNav.visibility = View.VISIBLE
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        list1.clear()
+        list2.clear()
+    }
+
     private val listCategory: ArrayList<Category>
         get() {
             val categoryName = resources.getStringArray(R.array.category_name)

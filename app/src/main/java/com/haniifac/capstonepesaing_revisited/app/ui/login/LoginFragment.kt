@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentLoginBinding
@@ -36,6 +37,12 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
             loginFirebase()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNav.visibility = View.GONE
     }
 
     override fun onDestroy() {

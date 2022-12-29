@@ -48,7 +48,6 @@ class RegisterFragment : Fragment() {
         val email = binding.tvEmail.text.toString()
         val pass = binding.tvPassword.text.toString()
         val name = binding.tvName.text.toString()
-        val phone = binding.tvPhone.text.toString()
 
         if(email.isNotBlank() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             Toast.makeText(context,"Email format is not valid", Toast.LENGTH_SHORT).show()
