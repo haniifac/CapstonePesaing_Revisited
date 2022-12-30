@@ -23,22 +23,27 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.GeoPoint
 import com.haniifac.capstonepesaing_revisited.R
+import com.haniifac.capstonepesaing_revisited.domain.entity.TokoFireStore
 
 class TokoMapsFragment : Fragment() {
-    private val permissionId = 2
     private lateinit var mMap: GoogleMap
+    private lateinit var mFirestore: FirebaseFirestore
 
     private val callback = OnMapReadyCallback { googleMap ->
         val indonesia = LatLng(0.7893,113.9213)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(indonesia,4f))
 
-//        getLocation(googleMap)
         mMap = googleMap
         mMap.uiSettings.isZoomControlsEnabled = true
 
         getMyLocation()
+        getAllToko()
     }
 
     override fun onCreateView(
@@ -51,10 +56,10 @@ class TokoMapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mFirestore = FirebaseFirestore.getInstance()
 
         val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.visibility = View.GONE
-
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
@@ -91,19 +96,6 @@ class TokoMapsFragment : Fragment() {
         }
         return false
     }
-//
-//    @SuppressLint("MissingPermission", "SetTextI18n")
-//    private fun getLocation(mMap: GoogleMap) {
-//        if (checkPermissions()) {
-//            if (isLocationEnabled()) {
-//                mMap.isMyLocationEnabled = true
-//            } else {
-//                Toast.makeText(requireContext(), "Please turn on location", Toast.LENGTH_LONG).show()
-//            }
-//        } else {
-//            requestPermissions()
-//        }
-//    }
 
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -111,4 +103,39 @@ class TokoMapsFragment : Fragment() {
             LocationManager.NETWORK_PROVIDER
         )
     }
+
+    private fun getAllToko(){
+        val tokoRef = mFirestore.collection("toko")
+        val listToko = arrayListOf<TokoFireStore>()
+
+        tokoRef.get()
+            .addOnSuccessListener { document ->
+                for (doc in document.documents){
+                    val data = doc.data
+                    val lokasi : GeoPoint? = doc.getGeoPoint("lokasi")
+                    if (data != null && lokasi != null) {
+                        val lat = lokasi.latitude
+                        val lon = lokasi.longitude
+
+                        val currToko = TokoFireStore(data["nama"].toString(), LatLng(lat,lon))
+                        listToko.add(currToko)
+                    }
+                }
+                showAllTokoMarker(listToko)
+            }
+            .addOnFailureListener {
+                Log.d("Firestore", "get failed with ", it)
+            }
+    }
+
+    private fun showAllTokoMarker(listToko : ArrayList<TokoFireStore>){
+        for(toko in listToko){
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(toko.lokasi)
+                    .title(toko.nama)
+            )
+        }
+    }
+
 }
