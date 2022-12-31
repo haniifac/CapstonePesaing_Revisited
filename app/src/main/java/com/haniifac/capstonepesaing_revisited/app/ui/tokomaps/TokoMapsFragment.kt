@@ -3,11 +3,9 @@ package com.haniifac.capstonepesaing_revisited.app.ui.tokomaps
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,20 +13,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
 import com.haniifac.capstonepesaing_revisited.R
+import com.haniifac.capstonepesaing_revisited.app.bottomsheet.BottomSheetMapFragment
 import com.haniifac.capstonepesaing_revisited.domain.entity.TokoFireStore
 
 class TokoMapsFragment : Fragment() {
@@ -44,6 +40,20 @@ class TokoMapsFragment : Fragment() {
 
         getMyLocation()
         getAllToko()
+
+        googleMap.setOnMarkerClickListener {
+//            BottomSheetMapFragment().show(parentFragmentManager, "bottomSheetTag")
+            val bottomSheet = BottomSheetMapFragment()
+            val bundle = Bundle().apply {
+                putString(TOKO_NAME_KEY, it.title)
+                putString(TOKO_LATLON_KEY, "Lat = ${it.position.latitude}, Lon = ${it.position.longitude}")
+            }
+
+            bottomSheet.arguments = bundle
+            bottomSheet.show(parentFragmentManager, "bottomSheetTag")
+
+            false
+        }
     }
 
     override fun onCreateView(
@@ -136,6 +146,11 @@ class TokoMapsFragment : Fragment() {
                     .title(toko.nama)
             )
         }
+    }
+
+    companion object{
+        const val TOKO_NAME_KEY = "toko_name_key"
+        const val TOKO_LATLON_KEY = "toko_latlon_key"
     }
 
 }

@@ -57,4 +57,7 @@
     <string name="logout_profile">Keluar/ganti akun</string>
     <string name="lihat_semua">Lihat Semua</string>
     <string name="search_query_hint"><font size="15">Cari apa yang kamu pikirkan…</font></string>
+    <string name="nama_toko">Nama Toko</string>
+    <string name="latlon">lat, lon</string>
+    <string name="cek_toko">Cek Toko</string>
 </resources>
