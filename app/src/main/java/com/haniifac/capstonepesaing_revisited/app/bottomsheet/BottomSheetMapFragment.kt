@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.haniifac.capstonepesaing_revisited.R
+import com.haniifac.capstonepesaing_revisited.app.ui.detailtoko.DetailTokoFragment
 import com.haniifac.capstonepesaing_revisited.app.ui.tokomaps.TokoMapsFragment
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentBottomSheetMapBinding
 
@@ -28,8 +32,28 @@ class BottomSheetMapFragment : BottomSheetDialogFragment() {
         binding.btnCekToko.setTextColor(Color.parseColor("#FFFFFF"))
         binding.btnCekToko.setRippleColorResource(androidx.appcompat.R.color.ripple_material_light)
 
-        binding.tvNamaToko.text = arguments?.getString(TokoMapsFragment.TOKO_NAME_KEY)
-        binding.tvLonlat.text = arguments?.getString(TokoMapsFragment.TOKO_LATLON_KEY)
+        val idToko = arguments?.getString(TokoMapsFragment.TOKO_ID_KEY)
+        val namaToko = arguments?.getString(TokoMapsFragment.TOKO_NAME_KEY)
+        val latLon = arguments?.getString(TokoMapsFragment.TOKO_LATLON_KEY)
+
+        binding.tvNamaToko.text = namaToko
+        binding.tvLonlat.text = latLon
+
+        binding.btnCekToko.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString(TokoMapsFragment.TOKO_ID_KEY, idToko)
+            }
+
+            val detailToko = DetailTokoFragment().apply {
+                arguments = bundle
+            }
+
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.container, detailToko)
+                addToBackStack(null)
+                commit()
+            }
+        }
 
     }
 }

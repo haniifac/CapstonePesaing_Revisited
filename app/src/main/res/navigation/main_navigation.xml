@@ -78,4 +78,23 @@
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokomaps.TokoMapsFragment"
         android:label="fragment_toko_maps"
         tools:layout="@layout/fragment_toko_maps" />
+    <fragment
+        android:id="@+id/detailTokoFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.ui.detailtoko.DetailTokoFragment"
+        android:label="fragment_detail_toko"
+        tools:layout="@layout/fragment_detail_toko" >
+        <argument
+            android:name="id_toko"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheetMapFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.bottomsheet.BottomSheetMapFragment"
+        android:label="fragment_bottom_sheet_map"
+        tools:layout="@layout/fragment_bottom_sheet_map" >
+        <action
+            android:id="@+id/action_bottomSheetMapFragment_to_detailTokoFragment"
+            app:destination="@id/detailTokoFragment" />
+    </dialog>
 </navigation>

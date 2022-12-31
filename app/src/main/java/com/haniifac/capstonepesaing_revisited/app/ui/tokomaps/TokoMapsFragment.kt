@@ -42,9 +42,9 @@ class TokoMapsFragment : Fragment() {
         getAllToko()
 
         googleMap.setOnMarkerClickListener {
-//            BottomSheetMapFragment().show(parentFragmentManager, "bottomSheetTag")
             val bottomSheet = BottomSheetMapFragment()
             val bundle = Bundle().apply {
+                putString(TOKO_ID_KEY, it.snippet)
                 putString(TOKO_NAME_KEY, it.title)
                 putString(TOKO_LATLON_KEY, "Lat = ${it.position.latitude}, Lon = ${it.position.longitude}")
             }
@@ -122,12 +122,14 @@ class TokoMapsFragment : Fragment() {
             .addOnSuccessListener { document ->
                 for (doc in document.documents){
                     val data = doc.data
+                    val id = doc.id
+                    Log.e("ID TOKO", id)
                     val lokasi : GeoPoint? = doc.getGeoPoint("lokasi")
                     if (data != null && lokasi != null) {
                         val lat = lokasi.latitude
                         val lon = lokasi.longitude
 
-                        val currToko = TokoFireStore(data["nama"].toString(), LatLng(lat,lon))
+                        val currToko = TokoFireStore(id, data["nama"].toString(), LatLng(lat,lon))
                         listToko.add(currToko)
                     }
                 }
@@ -144,11 +146,13 @@ class TokoMapsFragment : Fragment() {
                 MarkerOptions()
                     .position(toko.lokasi)
                     .title(toko.nama)
+                    .snippet(toko.id)
             )
         }
     }
 
     companion object{
+        const val TOKO_ID_KEY = "toko_id_key"
         const val TOKO_NAME_KEY = "toko_name_key"
         const val TOKO_LATLON_KEY = "toko_latlon_key"
     }
