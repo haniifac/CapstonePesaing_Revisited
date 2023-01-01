@@ -42,6 +42,8 @@ class BottomSheetMapFragment : BottomSheetDialogFragment() {
         binding.btnCekToko.setOnClickListener {
             val bundle = Bundle().apply {
                 putString(TokoMapsFragment.TOKO_ID_KEY, idToko)
+                putString(TokoMapsFragment.TOKO_NAME_KEY, namaToko)
+                putString(TokoMapsFragment.TOKO_LATLON_KEY, latLon)
             }
 
             val detailToko = DetailTokoFragment().apply {

@@ -77,17 +77,16 @@
         android:id="@+id/tokoMapsFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokomaps.TokoMapsFragment"
         android:label="fragment_toko_maps"
-        tools:layout="@layout/fragment_toko_maps" />
+        tools:layout="@layout/fragment_toko_maps" >
+        <action
+            android:id="@+id/action_tokoMapsFragment_to_bottomSheetMapFragment"
+            app:destination="@id/bottomSheetMapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailTokoFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.detailtoko.DetailTokoFragment"
         android:label="fragment_detail_toko"
-        tools:layout="@layout/fragment_detail_toko" >
-        <argument
-            android:name="id_toko"
-            app:argType="string"
-            android:defaultValue="default" />
-    </fragment>
+        tools:layout="@layout/fragment_detail_toko" />
     <dialog
         android:id="@+id/bottomSheetMapFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.bottomsheet.BottomSheetMapFragment"

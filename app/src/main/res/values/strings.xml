@@ -60,4 +60,9 @@
     <string name="nama_toko">Nama Toko</string>
     <string name="latlon">lat, lon</string>
     <string name="cek_toko">Cek Toko</string>
+    <string name="nama_barang">Nama Barang</string>
+    <string name="stok">Stok :</string>
+    <string name="jumlah_stok">Jumlah Stok</string>
+    <string name="stok_jumlah">Stok Jumlah</string>
+    <string name="harga">Rp</string>
 </resources>
