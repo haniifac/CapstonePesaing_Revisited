@@ -72,6 +72,12 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/homeUserFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_accountFragment_to_tokoPanelFragment"
+            app:destination="@id/tokoPanelFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_createTokoFragment"
+            app:destination="@id/createTokoFragment" />
     </fragment>
     <fragment
         android:id="@+id/tokoMapsFragment"
@@ -96,4 +102,18 @@
             android:id="@+id/action_bottomSheetMapFragment_to_detailTokoFragment"
             app:destination="@id/detailTokoFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/tokoPanelFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.TokoPanelFragment"
+        android:label="fragment_toko_panel"
+        tools:layout="@layout/fragment_toko_panel" />
+    <fragment
+        android:id="@+id/createTokoFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.CreateTokoFragment"
+        android:label="fragment_create_toko"
+        tools:layout="@layout/fragment_create_toko" >
+        <action
+            android:id="@+id/action_createTokoFragment_to_tokoPanelFragment"
+            app:destination="@id/tokoPanelFragment" />
+    </fragment>
 </navigation>

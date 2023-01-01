@@ -18,83 +18,98 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/img_foto_account"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline_account"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        android:src="@drawable/blank_avatar"/>
+
+    <TextView
+        android:id="@+id/tv_name_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/img_foto_account"
+        android:text="@string/nama_akun"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
     <com.google.android.material.button.MaterialButton
-        style="?android:borderlessButtonStyle"
         android:id="@+id/btn_open_store"
+        style="?android:borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/open_store"
-        android:textColor="@color/black"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        android:textAlignment="textStart"
         android:drawableLeft="@drawable/ic_outline_verified_user_24"
         android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:text="@string/open_store"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:iconPadding="30dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/guideline4"/>
+        app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
     <com.google.android.material.button.MaterialButton
-        style="?android:borderlessButtonStyle"
         android:id="@+id/payment_method"
+        style="?android:borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:drawableLeft="@drawable/ic_outline_credit_card_24"
         android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
         android:text="@string/payment_method"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:textAlignment="textStart"
         app:iconPadding="30dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/btn_open_store" />
 
     <com.google.android.material.button.MaterialButton
-        style="?android:borderlessButtonStyle"
         android:id="@+id/btn_change_pass"
+        style="?android:borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/change_password"
-        android:textColor="@color/black"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        android:textAlignment="textStart"
-        app:iconPadding="30dp"
         android:drawableLeft="@drawable/ic_outline_key_24"
         android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:text="@string/change_password"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:iconPadding="30dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/payment_method" />
 
     <com.google.android.material.button.MaterialButton
-        style="?android:borderlessButtonStyle"
         android:id="@+id/btn_logout_profile"
+        style="?android:borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/logout_profile"
-        android:textColor="@color/black"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        android:textAlignment="textStart"
-        app:iconPadding="30dp"
         android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
         android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:text="@string/logout_profile"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:iconPadding="30dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/btn_change_pass" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
@@ -109,6 +124,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

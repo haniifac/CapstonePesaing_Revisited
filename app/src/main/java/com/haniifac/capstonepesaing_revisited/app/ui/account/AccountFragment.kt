@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentAccountBinding
@@ -29,9 +30,15 @@ class AccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
 
+        binding.tvNameAccount.text = mAuth.currentUser?.displayName
+
         binding.btnLogoutProfile.setOnClickListener {
             mAuth.signOut()
             findNavController().navigate(R.id.action_accountFragment_to_loginFragment)
+        }
+
+        binding.btnOpenStore.setOnClickListener {
+            findNavController().navigate(R.id.action_accountFragment_to_createTokoFragment)
         }
     }
 

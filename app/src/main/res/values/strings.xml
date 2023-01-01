@@ -65,4 +65,9 @@
     <string name="jumlah_stok">Jumlah Stok</string>
     <string name="stok_jumlah">Stok Jumlah</string>
     <string name="harga">Rp</string>
+    <string name="nama_akun">Nama Akun</string>
+    <string name="buat_toko_baru">Buat Toko Baru</string>
+    <string name="buat_toko">Buat Toko</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
 </resources>
