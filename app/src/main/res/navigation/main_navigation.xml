@@ -114,6 +114,8 @@
         tools:layout="@layout/fragment_create_toko" >
         <action
             android:id="@+id/action_createTokoFragment_to_tokoPanelFragment"
-            app:destination="@id/tokoPanelFragment" />
+            app:destination="@id/tokoPanelFragment"
+            app:popUpTo="@id/createTokoFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

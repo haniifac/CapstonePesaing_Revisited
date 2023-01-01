@@ -80,6 +80,8 @@ class RegisterFragment : Fragment() {
                         }
                     }
 
+                createUserFirestore(email, name, user.uid)
+
                 findNavController().navigate(R.id.action_registerFragment_to_finishRegisterFragment)
                 Toast.makeText(context,"Register success", Toast.LENGTH_SHORT).show()
             }else{
@@ -88,15 +90,16 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun createUserFirestore(email: String, name: String){
+    private fun createUserFirestore(email: String, name: String, uid: String){
         val data = hashMapOf(
             "email" to email,
-            "nama" to name
+            "nama" to name,
+            "hasToko" to false
         )
 
-        mFirestore.collection("user").add(data)
-            .addOnSuccessListener { documentReference ->
-                Log.e(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
+        mFirestore.document("user/$uid").set(data)
+            .addOnSuccessListener {
+                Log.e(TAG, "successfully creating user at firestore")
             }
             .addOnFailureListener { e ->
                 Log.e(TAG, "Error adding document", e)

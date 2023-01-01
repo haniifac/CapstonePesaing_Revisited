@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.databinding.FragmentTokoPanelBinding
 
@@ -24,6 +25,9 @@ class TokoPanelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNav.visibility = View.GONE
+
     }
 
     override fun onDestroy() {
