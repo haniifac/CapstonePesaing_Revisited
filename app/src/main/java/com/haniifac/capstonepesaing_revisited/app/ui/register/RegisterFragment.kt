@@ -51,6 +51,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun handleRegister(){
+        binding.registerProgressBar.visibility = View.VISIBLE
         val email = binding.tvEmail.text.toString()
         val pass = binding.tvPassword.text.toString()
         val name = binding.tvName.text.toString()
@@ -59,13 +60,13 @@ class RegisterFragment : Fragment() {
             Toast.makeText(context,"Email format is not valid", Toast.LENGTH_SHORT).show()
         }else if(email.isNotBlank() && pass.isNotBlank()){
             createUserFirebase(email, pass, name)
-//            createUserFirestore(email, name)
         }else{
             Toast.makeText(context,"Email or Password Cannot be blank", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun createUserFirebase(email: String, pass: String, name: String){
+        binding.registerProgressBar.visibility = View.VISIBLE
         mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(requireActivity()){ task ->
             if(task.isSuccessful){
                 val user = mAuth.currentUser
@@ -81,10 +82,12 @@ class RegisterFragment : Fragment() {
                     }
 
                 createUserFirestore(email, name, user.uid)
+                binding.registerProgressBar.visibility = View.INVISIBLE
 
                 findNavController().navigate(R.id.action_registerFragment_to_finishRegisterFragment)
                 Toast.makeText(context,"Register success", Toast.LENGTH_SHORT).show()
             }else{
+                binding.registerProgressBar.visibility = View.INVISIBLE
                 Toast.makeText(context,"Email or password invalid", Toast.LENGTH_SHORT).show()
             }
         }
@@ -104,6 +107,8 @@ class RegisterFragment : Fragment() {
             .addOnFailureListener { e ->
                 Log.e(TAG, "Error adding document", e)
             }
+
+        mAuth.signOut()
     }
 
     companion object{

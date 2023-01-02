@@ -51,6 +51,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginFirebase(){
+        binding.loginProgressBar.visibility = View.VISIBLE
         val email = binding.tvEmail.text.toString()
         val pass = binding.tvPassword.text.toString()
 
@@ -62,8 +63,10 @@ class LoginFragment : Fragment() {
                 }else{
                     Toast.makeText(context,"Email or password incorrect", Toast.LENGTH_SHORT).show()
                 }
+                binding.loginProgressBar.visibility = View.INVISIBLE
             }
         }else{
+            binding.loginProgressBar.visibility = View.INVISIBLE
             Toast.makeText(context,"Email or Password Cannot be blank", Toast.LENGTH_SHORT).show()
         }
     }

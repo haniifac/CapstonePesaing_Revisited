@@ -78,4 +78,5 @@
     <string name="gambar_text">Gambar</string>
     <string name="add_image_symbol">+</string>
     <string name="choose_a_picture">Pilih Foto</string>
+    <string name="favorit">Favorit</string>
 </resources>

@@ -25,9 +25,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
 import com.haniifac.capstonepesaing_revisited.R
 import com.haniifac.capstonepesaing_revisited.app.bottomsheet.BottomSheetMapFragment
+import com.haniifac.capstonepesaing_revisited.databinding.FragmentTokoMapsBinding
 import com.haniifac.capstonepesaing_revisited.domain.entity.TokoFireStore
 
 class TokoMapsFragment : Fragment() {
+    private var _binding : FragmentTokoMapsBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var mMap: GoogleMap
     private lateinit var mFirestore: FirebaseFirestore
 
@@ -61,7 +65,8 @@ class TokoMapsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_toko_maps, container, false)
+        _binding = FragmentTokoMapsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -70,6 +75,7 @@ class TokoMapsFragment : Fragment() {
 
         val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.visibility = View.GONE
+        binding.mapProgressBar.visibility = View.VISIBLE
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
@@ -134,8 +140,10 @@ class TokoMapsFragment : Fragment() {
                     }
                 }
                 showAllTokoMarker(listToko)
+                binding.mapProgressBar.visibility = View.INVISIBLE
             }
             .addOnFailureListener {
+                binding.mapProgressBar.visibility = View.INVISIBLE
                 Log.d("Firestore", "get failed with ", it)
             }
     }

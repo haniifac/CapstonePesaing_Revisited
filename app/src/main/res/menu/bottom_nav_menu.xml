@@ -5,9 +5,9 @@
         android:icon="@drawable/ic_outline_home_24"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_cart"
+        android:id="@+id/navigation_favorite"
         android:icon="@drawable/ic_outline_shopping_cart_24"
-        android:title="@string/title_cart" />
+        android:title="@string/favorit" />
     <item
         android:id="@id/accountFragment"
         android:icon="@drawable/ic_outline_person_24"

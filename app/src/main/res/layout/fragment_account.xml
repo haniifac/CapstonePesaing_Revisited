@@ -58,24 +58,6 @@
         app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/payment_method"
-        style="?android:borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/ic_outline_credit_card_24"
-        android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
-        android:text="@string/payment_method"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:iconPadding="30dp"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/btn_open_store" />
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_change_pass"
         style="?android:borderlessButtonStyle"
         android:layout_width="0dp"
@@ -91,7 +73,7 @@
         app:iconPadding="30dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/payment_method" />
+        app:layout_constraintTop_toBottomOf="@id/btn_open_store" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_logout_profile"
