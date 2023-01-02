@@ -73,4 +73,8 @@
     <string name="ingin_tambah_barang">Ingin Tambah Barang?</string>
     <string name="tambahkan_barang">Tambahkan Barang</string>
     <string name="daftar_barang">Daftar Barang</string>
+    <string name="tambah_barang_title">Tambah Barang</string>
+    <string name="harga_text">Harga</string>
+    <string name="gambar_text">Gambar</string>
+    <string name="add_image_symbol">+</string>
 </resources>

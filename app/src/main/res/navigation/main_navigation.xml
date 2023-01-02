@@ -106,7 +106,11 @@
         android:id="@+id/tokoPanelFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.TokoPanelFragment"
         android:label="fragment_toko_panel"
-        tools:layout="@layout/fragment_toko_panel" />
+        tools:layout="@layout/fragment_toko_panel" >
+        <action
+            android:id="@+id/action_tokoPanelFragment_to_addTokoItemFragment"
+            app:destination="@id/addTokoItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createTokoFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.CreateTokoFragment"
@@ -118,4 +122,9 @@
             app:popUpTo="@id/createTokoFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/addTokoItemFragment"
+        android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.AddTokoItemFragment"
+        android:label="fragment_add_toko_item"
+        tools:layout="@layout/fragment_add_toko_item" />
 </navigation>

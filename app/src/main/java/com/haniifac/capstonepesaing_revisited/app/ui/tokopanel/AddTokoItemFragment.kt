@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.haniifac.capstonepesaing_revisited.R
-import com.haniifac.capstonepesaing_revisited.databinding.FragmentTokoPanelBinding
+import com.haniifac.capstonepesaing_revisited.databinding.FragmentAddTokoItemBinding
 
 
-class TokoPanelFragment : Fragment() {
-    private var _binding : FragmentTokoPanelBinding? = null
+class AddTokoItemFragment : Fragment() {
+    private var _binding : FragmentAddTokoItemBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,25 +18,16 @@ class TokoPanelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentTokoPanelBinding.inflate(inflater, container, false)
+        _binding = FragmentAddTokoItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-        bottomNav.visibility = View.GONE
-
-        binding.btnTambahBarang.setOnClickListener {
-            findNavController().navigate(R.id.action_tokoPanelFragment_to_addTokoItemFragment)
-        }
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
-
 }
