@@ -45,6 +45,7 @@ class AccountFragment : Fragment() {
         }
 
         binding.btnOpenStore.setOnClickListener {
+            binding.accountProgressBar.visibility = View.VISIBLE
             mFirestore.document("user/$userUid").get()
                 .addOnSuccessListener {
                     val hasToko = it.getBoolean("hasToko")
@@ -53,8 +54,10 @@ class AccountFragment : Fragment() {
                     }else{
                         findNavController().navigate(R.id.action_accountFragment_to_createTokoFragment)
                     }
+                    binding.accountProgressBar.visibility = View.INVISIBLE
                 }
                 .addOnFailureListener {
+                    binding.accountProgressBar.visibility = View.INVISIBLE
                     Log.e("AccountFragment","error ${it.message}")
                 }
         }

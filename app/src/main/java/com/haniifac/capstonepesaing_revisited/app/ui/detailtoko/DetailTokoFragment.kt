@@ -37,6 +37,8 @@ class DetailTokoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         mFirestore = FirebaseFirestore.getInstance()
 
+        binding.detailTokoProgressBar.visibility = View.VISIBLE
+
         val idToko = arguments?.getString(TokoMapsFragment.TOKO_ID_KEY)
         val namaToko = arguments?.getString(TokoMapsFragment.TOKO_NAME_KEY)
         val lokasiToko = arguments?.getString(TokoMapsFragment.TOKO_LATLON_KEY)
@@ -71,8 +73,10 @@ class DetailTokoFragment : Fragment() {
                     }
                 }
                 showRecyclerBarang(listBarang)
+                binding.detailTokoProgressBar.visibility = View.INVISIBLE
             }
             .addOnFailureListener {
+                binding.detailTokoProgressBar.visibility = View.INVISIBLE
                 Log.d("Firestore", "get failed with ", it)
             }
     }

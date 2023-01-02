@@ -51,10 +51,10 @@
         app:layout_constraintTop_toBottomOf="@id/add_item_textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_password"
+            android:id="@+id/tv_jumlah_stok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +75,7 @@
             android:id="@+id/tv_harga"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +99,15 @@
         app:layout_constraintStart_toStartOf="@id/tv_gambar_title"
         app:layout_constraintTop_toBottomOf="@id/tv_gambar_title"/>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_item_barang"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top_add_item"

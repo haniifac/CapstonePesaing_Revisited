@@ -126,5 +126,11 @@
         android:id="@+id/addTokoItemFragment"
         android:name="com.haniifac.capstonepesaing_revisited.app.ui.tokopanel.AddTokoItemFragment"
         android:label="fragment_add_toko_item"
-        tools:layout="@layout/fragment_add_toko_item" />
+        tools:layout="@layout/fragment_add_toko_item" >
+        <action
+            android:id="@+id/action_addTokoItemFragment_to_tokoPanelFragment"
+            app:destination="@id/tokoPanelFragment"
+            app:popUpTo="@id/tokoPanelFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
