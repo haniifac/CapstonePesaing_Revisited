@@ -9,10 +9,6 @@
         android:icon="@drawable/ic_outline_shopping_cart_24"
         android:title="@string/title_cart" />
     <item
-        android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_outline_receipt_24"
-        android:title="@string/title_history" />
-    <item
         android:id="@id/accountFragment"
         android:icon="@drawable/ic_outline_person_24"
         android:title="@string/title_akun" />

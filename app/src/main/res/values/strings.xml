@@ -70,4 +70,7 @@
     <string name="buat_toko">Buat Toko</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
+    <string name="ingin_tambah_barang">Ingin Tambah Barang?</string>
+    <string name="tambahkan_barang">Tambahkan Barang</string>
+    <string name="daftar_barang">Daftar Barang</string>
 </resources>
